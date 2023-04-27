@@ -33,6 +33,6 @@ The purpose of this project is to learn some of the ground-work to cloud databas
 
 {Make a list of things that you need to fix, improve, and add in the future.}
 
-- Item 1
-- Item 2
-- Item 3
+get firestore
+pip install firebase admin
+service account file
