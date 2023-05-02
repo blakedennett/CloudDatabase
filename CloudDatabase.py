@@ -16,18 +16,41 @@ db = firestore.client()
 
 
 w1 = {
-    'date': 512023
+    'date': 522023,
+    'type': 'for time',
+    '1':'2000m row'
 }
 
 w2 = {
-    'date': 4282023
+    'date': 512023,
+    'type': 'amrap',
+    '1':'60 cal row',
+    '2':'50 ttb',
+    '3':'40 wallballs',
+    '4':'30 cleans (135/95)',
+    '5':'20 ring muscle ups'
 }
 
-data = [w1, w2]
+data = [w1]
 
-# for record in data:
-#     write_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase').document('dat')
-#     write_ref.set(record)
+def put_data(data_dict, doc_str):
+    for record in data_dict:
+        write_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase').document(doc_str)
+        write_ref.set(record)
 
 
-read_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase')
+put_data(data, 'workouts')
+
+
+
+
+
+
+def read_data(id):
+    read_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase')
+    docs = read_ref.stream()
+    for doc in docs:
+        if doc.id == id:
+            print(doc.to_dict())
+
+# read_data('dat')
