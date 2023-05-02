@@ -25,6 +25,9 @@ w2 = {
 
 data = [w1, w2]
 
-for record in data:
-    rec = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase').document('dat')
-    rec.set(record)
+# for record in data:
+#     write_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase').document('dat')
+#     write_ref.set(record)
+
+
+read_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase')
