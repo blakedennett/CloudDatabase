@@ -30,8 +30,23 @@ w2 = {
     '4':'30 cleans (135/95)',
     '5':'20 ring muscle ups'
 }
+w3 = {
+    'date':432023,
+    'type':'strength',
+    'movement':'dead lift, hang clean, front squat, split jerk',
+    'weight':175
+}
+m1 = {
+    'date':4182023,
+    'movement':'hang clean',
+    'weight': 175
+}
 
-data = [w2]
+data1 = [w1]
+data2 = [w2]
+data3 = [w3]
+data4 = [m1]
+
 
 
 # the "create_document" function takes in a list with one or more dictionaries and 
@@ -42,18 +57,38 @@ def create_document(data_dict, doc_name, collection):
         write_ref.set(record)
 
 
-# create_document(data, '512023', 'workouts')
+create_document(data1, '522023', 'workouts')
+create_document(data2, '512023', 'workouts')
+create_document(data3, '432023', 'workouts')
+
+create_document(data4, 'hang clean', 'maxes')
+create_document(data3, '432023', 'workouts')
 
 
 
 
 
 # read_data takes in an id and then prints the dictionary 
-def read_data(id):
-    read_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase')
+def read_document(collection, id):
+    read_ref = db.collection(collection)
     docs = read_ref.stream()
     for doc in docs:
         if doc.id == id:
             print(doc.to_dict())
 
-# read_data('dat')
+# read_document('workouts', '512023')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# .collection('maxes').document('hang clean')
