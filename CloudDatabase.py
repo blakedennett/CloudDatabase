@@ -1,26 +1,26 @@
 import firebase_admin
 from firebase_admin import firestore
 from firebase_admin import credentials
-from google.cloud import storage
+
 
 # "project_id": "cloud-database-69f2b"
 
-# Application Default credentials are automatically created.
+
+
+# uses credentials from a file that holds the private key
 cred = credentials.Certificate(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\secret\key.json')
+# stores configuration and administration
 firebase_admin.initialize_app(cred)
-
-
 db = firestore.client()
 
 
 
-
+# two workouts to be placed in the "workouts" document
 w1 = {
     'date': 522023,
     'type': 'for time',
     '1':'2000m row'
 }
-
 w2 = {
     'date': 512023,
     'type': 'amrap',
@@ -31,21 +31,24 @@ w2 = {
     '5':'20 ring muscle ups'
 }
 
-data = [w1]
+data = [w2]
 
-def put_data(data_dict, doc_str):
+
+# the "create_document" function takes in a list with one or more dictionaries and 
+# adds them to the given collection
+def create_document(data_dict, doc_name, collection):
     for record in data_dict:
-        write_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase').document(doc_str)
+        write_ref = db.collection(collection).document(doc_name)
         write_ref.set(record)
 
 
-put_data(data, 'workouts')
+# create_document(data, '512023', 'workouts')
 
 
 
 
 
-
+# read_data takes in an id and then prints the dictionary 
 def read_data(id):
     read_ref = db.collection(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\CloudDatabase')
     docs = read_ref.stream()
