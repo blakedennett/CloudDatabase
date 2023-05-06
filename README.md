@@ -2,37 +2,24 @@
 
 The purpose of this project is to learn some of the ground-work to cloud databases.  
 
-{Provide a description of the software that you wrote and how it integrates with a Cloud Database. Describe how to use your program.}
-
-{Describe your purpose for writing this software.}
-
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running, a walkthrough of the code, and a view of the cloud database.}
+I imported the firebase admin and used a private key to set up credentials. Then I made a function to add 
+a document with fields, read a document, and delete a document.
 
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Cloud Database
 
-{Describe the cloud database you are using.}
-
-{Describe the structure of the database that you created.}
+This is a simple database that describes a few CrossFit workouts with each movement.
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+The tools I used were Google's Firestore, Python, and Visual Studio Code.
 
-{Describe the programming language that you used and any libraries.}
+# Github website
 
-# Useful Websites
-
-{Make a list of websites that you found helpful in this project}
-
-- [Web Site Name](http://url.link.goes.here)
-- [Web Site Name](http://url.link.goes.here)
+https://github.com/blakedennett/CloudDatabase
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
-get firestore
-pip install firebase admin
-service account file
+In the future I would like to better understand some of the standards that companies use to 
+build, maintain and organize these databases

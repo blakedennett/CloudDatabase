@@ -9,6 +9,8 @@ from firebase_admin import credentials
 
 # uses credentials from a file that holds the private key
 cred = credentials.Certificate(r'C:\Users\Blake Dennett\Downloads\Spring2023\appliedProgramming\secret\key.json')
+
+
 # stores configuration and administration
 firebase_admin.initialize_app(cred)
 db = firestore.client()
@@ -53,16 +55,16 @@ data4 = [m1]
 # adds them to the given collection
 def create_document(data_dict, doc_name, collection):
     for record in data_dict:
-        write_ref = db.collection(collection).document(doc_name)
+        write_ref = db.collection(collection).document(doc_name).collection('maxes').document('hang clean')
         write_ref.set(record)
 
 
-create_document(data1, '522023', 'workouts')
-create_document(data2, '512023', 'workouts')
-create_document(data3, '432023', 'workouts')
+# create_document(data1, '522023', 'workouts')
+# create_document(data2, '512023', 'workouts')
+# create_document(data3, '432023', 'workouts')
 
-create_document(data4, 'hang clean', 'maxes')
-create_document(data3, '432023', 'workouts')
+# create_document(data4, 'hang clean', 'maxes')
+# create_document(data3, '432023', 'workouts')
 
 
 
@@ -82,6 +84,9 @@ def read_document(collection, id):
 
 
 
+
+# deleting a document
+db.collection('workouts').document('522023').delete()
 
 
 
